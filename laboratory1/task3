@@ -1,0 +1,29 @@
+"""
+Завдання: знайти значення функції f(x).
+"""
+import re
+print("Оленченко Максим Андрійович \n Лабораторна робота №1 \n Варіант 15"
+      " Завдання №3 Обчислити значення функції.")
+restart = True
+while restart == True :
+    re_integer = re.compile("^[-+]{0,1}\d+$")
+    def validator(pattern, promt):
+        text = input(promt)
+        while not bool(pattern.match(text)):
+            text = input(promt)
+        return text
+    def int_greater_zero_validator(prompt):
+        number = int(validator(re_integer, prompt))
+        return number
+    x = int_greater_zero_validator('Enter x: ')
+    if x > 3.6 :
+          f = 45*(x*x)+5
+    else :
+          f = (5*x)/(10*(x*x)+1)
+    print("Function value f(x) = ", f)
+    ans = input("Do you want to re-start the program? If so, press 'y': ")
+    if ans == ("y"):
+        restart = True
+    else:
+        restart = False
+        print("Goodbye :)")
