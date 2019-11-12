@@ -1,0 +1,34 @@
+Завдання: Потрібно обчислити, скільки банок фарби потрібно, щоб пофарбувати поверхню бака циліндричної форми. 
+Пофарбувати треба і зовні, і зсередини. Користувач вводить діаметр і висоту бака, а також, яку площу можна забарвити однієї банкою фарби.
+
+import math
+import re
+const = math.pi
+print("Оленченко Максим Андрійович \n Лабораторна робота №1 \n Варіант 15"
+      " Завдання №1 Обчислити, скільки потрібно банок фарби")
+restart = True
+while restart == True :
+    re_integer = re.compile("^[-+]{0,1}\d+$")
+    def validator(pattern, promt):
+        text = input(promt)
+        while not bool(pattern.match(text)):
+            text = input(promt)
+        return text
+    def int_greater_zero_validator(prompt):
+
+        number = int(validator(re_integer, prompt))
+        while number<=0:
+            number = int(validator(re_integer, prompt))
+
+        return number
+    diameter =  int_greater_zero_validator('Enter diameter of the tank > 0: ')
+    height =  int_greater_zero_validator('Enter heigght of the tank > 0 : ')
+    square = int_greater_zero_validator('Enter square of the tank > 0 : ')
+    result = (2*const*(diameter/2)*height/square)
+    print(result)
+    ans = input("Do you want to re-start the program? If so, press 'y': ")
+    if ans == ("y"):
+        restart = True
+    else:
+        restart = False
+        print("Goodbye :)")
