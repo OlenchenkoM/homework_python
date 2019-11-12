@@ -19,3 +19,4 @@ while restart == True :
     else:
         restart = False
         print("Goodbye :)")
+#не зовсім зрозумів, чому for не спрацював у функції def mysort, хоча поза цієї функції він працює.
