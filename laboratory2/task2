@@ -1,0 +1,38 @@
+"""
+Завдання: 15) Дано ціле число N(>0). Знайти подвійний факторіал N: N!!= N•(N-2) •(N-4)• ... (останній співмножник дорівнює 2, якщо N - парне, і 1, якщо N - непарне).
+Щоб уникнути цілочисельного переповнення, обчислювати цей добуток за допомогою дійсної змінної і вивести його як дійсне число.
+"""
+
+import re
+print("Оленченко Максим Андрійович \n Лабораторна робота №1 \n Варіант 15"
+      " Обчислити суму.")
+restart = True
+while restart == True :
+    re_integer = re.compile("^[-+]{0,1}\d+$")
+    def validator(pattern, promt):
+        text = input(promt)
+        while not bool(pattern.match(text)):
+            text = input(promt)
+        return text
+    def int_greater_zero_validator(prompt):
+        number = int(validator(re_integer, prompt))
+        while number <= 0:
+            number = int(validator(re_integer, prompt))
+        return number
+    n = int_greater_zero_validator('Enter n > 0: ')
+    factorial = 1
+    while n > 1:
+        factorial *= n
+        n -= 1
+    factorial1 = 1
+    j = factorial
+    while j > 1:
+        factorial1 *= j
+        j -= 1
+    print("Шукаєме значення", factorial1)
+    ans = input("Do you want to re-start the program? If so, press 'y': ")
+    if ans == ("y"):
+        restart = True
+    else:
+        restart = False
+        print("Goodbye :)")
