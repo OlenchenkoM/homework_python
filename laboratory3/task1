@@ -1,1 +1,21 @@
 """
+Завдання: Упорядкувати символи в рядку за алфавітом.
+"""
+print("Оленченко Максим Андрійович \n Лабораторна робота №3 \n Варіант 15"
+      " Завдання №1: Упорядкувати символи в рядку за алфавітом.")
+restart = True
+while restart == True :
+    sentence = (input("Введіть речення: "))
+    lst = sorted(sentence)
+    sentence1 = ''
+    def mysort(sentence1):
+        return sentence1
+    for sentence in lst:
+        sentence1 += sentence
+    print(sentence1)
+    ans = input("Do you want to re-start the program? If so, press 'y': ")
+    if ans == ("y"):
+        restart = True
+    else:
+        restart = False
+        print("Goodbye :)")
