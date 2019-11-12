@@ -1,0 +1,37 @@
+"""
+Завдання: Написати програму, яка аналізує дані про вік і відносить людину до однієї з чотирьох груп: дошкільник, учень, працівник, пенсіонер.
+Вік вводиться з клавіатури.
+"""
+import re
+print("Оленченко Максим Андрійович \n Лабораторна робота №1 \n Варіант 15"
+      " Завдання №2 Проаналізувати дані про вік людини.")
+restart = True
+while restart == True :
+    re_integer = re.compile("^[-+]{0,1}\d+$")
+    def validator(pattern, promt):
+        text = input(promt)
+        while not bool(pattern.match(text)):
+            text = input(promt)
+        return text
+    def int_greater_zero_validator(prompt):
+
+        number = int(validator(re_integer, prompt))
+        while number<=0:
+            number = int(validator(re_integer, prompt))
+
+        return number
+    age =  int_greater_zero_validator('Enter the age that needs to be analyzed. It must be > 0: ')
+    if age <= 6 :
+        print("Ця людина є дошкільником. ")
+    elif 6 < age <= 18 :
+        print("Ця людина є учнем. ")
+    elif 18 < age <= 65 :
+        print("Ця людина є працівником. ")
+    elif age > 65 :
+        print("Ця людина є пенсіонером. ")
+    ans = input("Do you want to re-start the program? If so, press 'y': ")
+    if ans == ("y"):
+        restart = True
+    else:
+        restart = False
+        print("Goodbye :)")
